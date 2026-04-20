@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Triad of Regulation: Research Synthesis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #f8f7f4;
+            --teal-deep: #0f766e;
+            --stone-warm: #44403c;
+            --accent-soft: #fef3c7;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--stone-warm);
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .tab-active {
+            background-color: white;
+            border-color: var(--teal-deep);
+            color: var(--teal-deep);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+
+    <!-- Chosen Palette: Serene Balance (Soft Ivory, Deep Teal, Muted Amber, and Warm Stone) -->
+    <!-- Application Structure Plan: The SPA is designed as a "Guided Discovery" path. It begins with a high-level conceptual overview, moves into an interactive comparison of the three theories, visualizes their overlaps through a radar chart, and concludes with a functional "Diagnostic Engine." This structure was chosen to move the user from theory to data, then to practical application, ensuring the complex synthesis is digestible. -->
+    <!-- Visualization & Content Choices: 
+        1. Conceptual Pillars -> Goal: Inform -> Interactive Card Grid -> Keeps the three theories distinct but visually connected.
+        2. Integrated Radar -> Goal: Compare -> Radar Chart (Chart.js) -> Demonstrates structural symmetry across biological and energetic metrics.
+        3. Intervention Lab -> Goal: Organize -> State-based Logic Mapper -> Connects specific symptoms to unified cross-disciplinary treatments.
+        CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="antialiased">
+
+    <nav class="sticky top-0 z-50 bg-[#f8f7f4]/80 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl font-bold text-teal-800 tracking-tight">&#10045;</span>
+                <span class="text-lg font-bold tracking-tighter uppercase text-stone-700">Triad Synthesis</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold text-stone-500 uppercase tracking-widest">
+                <a href="#overview" class="hover:text-teal-700 transition-colors">Overview</a>
+                <a href="#theory" class="hover:text-teal-700 transition-colors">Frameworks</a>
+                <a href="#visualization" class="hover:text-teal-700 transition-colors">Analysis</a>
+                <a href="#diagnostic" class="hover:text-teal-700 transition-colors">Interventions</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-32">
+
+        <section id="overview" class="text-center space-y-8 pt-12">
+            <div class="inline-block px-4 py-1.5 bg-teal-50 border border-teal-100 rounded-full text-[10px] font-bold text-teal-700 uppercase tracking-[0.2em] mb-4">Integrative Research Project</div>
+            <h1 class="text-5xl md:text-7xl font-bold text-stone-800 leading-[1.1]">The Geometry of Balance</h1>
+            <p class="text-xl text-stone-500 max-w-2xl mx-auto leading-relaxed font-light">
+                Exploring the profound structural alignment between <strong>Polyvagal Theory</strong>, <strong>General Systems Science</strong>, and the <strong>Energetic Wisdom of Ayurveda</strong>.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6 pt-6">
+                <div class="flex items-center space-x-2 text-stone-600">
+                    <span class="text-teal-600">&#10004;</span>
+                    <span class="text-sm">Neurobiology</span>
+                </div>
+                <div class="flex items-center space-x-2 text-stone-600">
+                    <span class="text-teal-600">&#10004;</span>
+                    <span class="text-sm">Dynamic Equilibrium</span>
+                </div>
+                <div class="flex items-center space-x-2 text-stone-600">
+                    <span class="text-teal-600">&#10004;</span>
+                    <span class="text-sm">Dosha Regulation</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="theory" class="space-y-12">
+            <div class="max-w-2xl">
+                <h2 class="text-3xl font-bold text-stone-800">1. Foundational Pillars</h2>
+                <p class="text-stone-500 mt-4 leading-relaxed">
+                    This section defines the three core disciplines. Each framework uses different terminology, but they all describe the same biological phenomenon: the management of internal resources in response to external pressure.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all border border-stone-200">
+                    <div class="text-3xl mb-6 text-teal-700">&#9861;</div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-3">Polyvagal Theory</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed mb-6">Focuses on the evolutionary hierarchy of the autonomic nervous system and its three primary states of response.</p>
+                    <div class="space-y-2 text-[10px] font-bold text-stone-400 uppercase tracking-widest">
+                        <div class="flex justify-between"><span>Safety</span><span class="text-teal-600">Ventral</span></div>
+                        <div class="w-full h-1 bg-stone-100 rounded-full"><div class="bg-teal-600 h-1 rounded-full w-full"></div></div>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all border border-stone-200">
+                    <div class="text-3xl mb-6 text-amber-700">&#9737;</div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-3">Systems Theory</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed mb-6">Views biological entities as open systems that use feedback loops to maintain homeostatic equilibrium.</p>
+                    <div class="space-y-2 text-[10px] font-bold text-stone-400 uppercase tracking-widest">
+                        <div class="flex justify-between"><span>Regulation</span><span class="text-amber-600">Homeostasis</span></div>
+                        <div class="w-full h-1 bg-stone-100 rounded-full"><div class="bg-amber-600 h-1 rounded-full w-full"></div></div>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-all border border-stone-200">
+                    <div class="text-3xl mb-6 text-emerald-700">&#9728;</div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-3">Ayurveda</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed mb-6">A holistic science categorizing physiological functions into three energetic principles or "Doshas."</p>
+                    <div class="space-y-2 text-[10px] font-bold text-stone-400 uppercase tracking-widest">
+                        <div class="flex justify-between"><span>Balance</span><span class="text-emerald-600">Sattva</span></div>
+                        <div class="w-full h-1 bg-stone-100 rounded-full"><div class="bg-emerald-600 h-1 rounded-full w-full"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="visualization" class="bg-stone-800 rounded-[3rem] p-8 md:p-16 text-white space-y-12">
+            <div class="max-w-3xl">
+                <h2 class="text-3xl font-bold">2. Cross-Disciplinary Analysis</h2>
+                <p class="text-stone-300 mt-4 leading-relaxed">
+                    By plotting metabolic rate, social capacity, and stress reactivity, we reveal a unified map. Notice how the **Ventral Vagal** state perfectly overlaps with **Sattva**, while **Sympathetic** arousal mirrors the instability of **Vata** and **Pitta**.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="bg-white p-6 rounded-[2rem] shadow-2xl">
+                    <div class="chart-container">
+                        <canvas id="triadRadar"></canvas>
+                    </div>
+                </div>
+                <div class="space-y-8">
+                    <div class="flex gap-6">
+                        <div class="w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-400 font-bold shrink-0">1</div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-1 text-white">Dynamic Stability</h4>
+                            <p class="text-sm text-stone-400">High social connectivity and moderate metabolism characterize the "Safe" system.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400 font-bold shrink-0">2</div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-1 text-white">Resource Runaway</h4>
+                            <p class="text-sm text-stone-400">High reactivity and low stability define the "Mobilized" system (Sympathetic/Vata).</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-12 h-12 rounded-full bg-slate-500/20 flex items-center justify-center text-slate-400 font-bold shrink-0">3</div>
+                        <div>
+                            <h4 class="font-bold text-xl mb-1 text-white">System Attenuation</h4>
+                            <p class="text-sm text-stone-400">Low energy and low connectivity mark the "Shutdown" state (Dorsal/Kapha).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diagnostic" class="space-y-12 pb-24">
+            <div class="text-center max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold text-stone-800">3. Unified Intervention Lab</h2>
+                <p class="text-stone-500 mt-4">Select a state below to generate a treatment protocol derived from all three frameworks.</p>
+            </div>
+
+            <div class="bg-white rounded-[2.5rem] shadow-xl border border-stone-200 overflow-hidden">
+                <div class="p-4 md:p-8 bg-stone-50 border-b border-stone-200 flex flex-col md:flex-row items-center gap-6">
+                    <span class="text-sm font-bold text-stone-500 uppercase tracking-widest">Select Observed Presentation:</span>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="updateDiagnostic('erratic')" class="diag-btn px-6 py-2 rounded-full text-xs font-bold border border-stone-200 hover:bg-white transition-all">Erratic & Anxious</button>
+                        <button onclick="updateDiagnostic('reactive')" class="diag-btn px-6 py-2 rounded-full text-xs font-bold border border-stone-200 hover:bg-white transition-all">Sharp & Irritable</button>
+                        <button onclick="updateDiagnostic('heavy')" class="diag-btn px-6 py-2 rounded-full text-xs font-bold border border-stone-200 hover:bg-white transition-all">Numb & Heavy</button>
+                        <button onclick="updateDiagnostic('centered')" class="diag-btn px-6 py-2 rounded-full text-xs font-bold border border-stone-200 hover:bg-white transition-all">Centered & Clear</button>
+                    </div>
+                </div>
+
+                <div id="diagnosticContent" class="p-8 md:p-12 min-h-[400px]">
+                    <!-- Dynamic Results -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-stone-50 border-t border-stone-200 py-16">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-stone-400 text-xs tracking-widest uppercase font-bold italic">PVT | Systems | Ayurveda</div>
+            <div class="text-stone-400 text-[10px] uppercase font-bold tracking-widest">A Living Research Documentation Project</div>
+            <div class="flex space-x-6 text-stone-400">
+                <span class="hover:text-teal-700 transition-colors cursor-pointer">&#9861;</span>
+                <span class="hover:text-amber-700 transition-colors cursor-pointer">&#9737;</span>
+                <span class="hover:text-emerald-700 transition-colors cursor-pointer">&#9728;</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const diagnostics = {
+            erratic: {
+                title: "Vata-Sympathetic Runaway",
+                pvt: "Active Sympathetic Arousal. The system perceives insecurity and mobilizes for flight.",
+                sys: "Positive Feedback Loop. Unchecked variance leads to system oscillations and eventual exhaustion.",
+                ayu: "Vata Imbalance. The kinetic force of air/ether is excessive, disrupting the biological rhythms (Prana).",
+                intervention: "Grounding (Negative Feedback): Weighted blankets, root vegetables, rhythmic breathing, and consistent schedules to anchor the system."
+            },
+            reactive: {
+                title: "Pitta-Sympathetic Agitation",
+                pvt: "Sympathetic Arousal (Fight Mode). Narrowed attention and increased metabolic heat for confrontation.",
+                sys: "Systemic Friction. High-intensity processing creates thermal overload, leading to internal component damage.",
+                ayu: "Pitta Imbalance. Excess fire/water. High metabolic acidity and mental criticalness.",
+                intervention: "Cooling (Attenuation): Cooling breath (Sitali), bitter herbs, cold water exposure, and cultivating 'Metta' (loving-kindness)."
+            },
+            heavy: {
+                title: "Kapha-Dorsal Shutdown",
+                pvt: "Dorsal Vagal Immobilization. Extreme energy conservation due to perceived inescapable threat.",
+                sys: "Closed System State. High entropy and low informational throughput. The system is operating at survival baseline.",
+                ayu: "Kapha Imbalance. Excess earth/water. Heavy stagnation (Ama) blocking the subtle channels of the body.",
+                intervention: "Stimulation (Kinetic Entry): Warming spices, light mobilization, social safety cues, and dry brushing to re-engage the system."
+            },
+            centered: {
+                title: "Sattvic-Ventral Equilibrium",
+                pvt: "Ventral Vagal Safety. High Heart Rate Variability (HRV) and active social engagement system.",
+                sys: "Dynamic Homeostasis. Optimal input/output ratio. The system is resilient and highly adaptive to change.",
+                ayu: "Sattvic Balance. Clarity and luminosity. The Doshas are in harmony, supported by strong vital essence (Ojas).",
+                intervention: "Maintenance (Resilience): Mindful meditation, nourishing social connections, and alignment with circadian rhythms."
+            }
+        };
+
+        function updateDiagnostic(key) {
+            const data = diagnostics[key];
+            const content = document.getElementById('diagnosticContent');
+            
+            // UI Update for buttons
+            document.querySelectorAll('.diag-btn').forEach(btn => {
+                if(btn.innerText.toLowerCase().includes(key.substring(0,3))) {
+                    btn.classList.add('tab-active');
+                } else {
+                    btn.classList.remove('tab-active');
+                }
+            });
+
+            content.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 animate-[fadeIn_0.5s_ease-out]">
+                    <div class="space-y-4">
+                        <div class="text-[10px] font-bold text-teal-600 uppercase tracking-widest">Neurobiology (PVT)</div>
+                        <h4 class="text-2xl font-bold text-stone-800">${data.title.split(' ')[1]}</h4>
+                        <p class="text-sm text-stone-500 leading-relaxed">${data.pvt}</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-[10px] font-bold text-amber-600 uppercase tracking-widest">Systems Theory</div>
+                        <h4 class="text-2xl font-bold text-stone-800">Feedback State</h4>
+                        <p class="text-sm text-stone-500 leading-relaxed">${data.sys}</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-[10px] font-bold text-emerald-600 uppercase tracking-widest">Ayurveda</div>
+                        <h4 class="text-2xl font-bold text-stone-800">Energetic Shift</h4>
+                        <p class="text-sm text-stone-500 leading-relaxed">${data.ayu}</p>
+                    </div>
+                </div>
+                <div class="mt-12 p-8 bg-teal-900 text-white rounded-3xl flex flex-col md:flex-row items-center gap-6 animate-[fadeIn_0.7s_ease-out]">
+                    <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center text-3xl">&#10022;</div>
+                    <div class="flex-1">
+                        <h5 class="font-bold text-lg mb-1">Unified Treatment Protocol</h5>
+                        <p class="text-sm text-teal-100/80 leading-relaxed">${data.intervention}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize Charts
+        const ctx = document.getElementById('triadRadar').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Metabolism', 'Social Connection', 'Stability', 'Resilience', 'Reactivity'],
+                datasets: [{
+                    label: 'Ventral / Sattva',
+                    data: [6, 10, 9, 10, 3],
+                    backgroundColor: 'rgba(15, 118, 110, 0.2)',
+                    borderColor: '#0f766e',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#0f766e'
+                }, {
+                    label: 'Sympathetic / Vata',
+                    data: [10, 4, 3, 5, 10],
+                    backgroundColor: 'rgba(217, 119, 6, 0.2)',
+                    borderColor: '#d97706',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#d97706'
+                }, {
+                    label: 'Dorsal / Kapha',
+                    data: [2, 2, 10, 3, 2],
+                    backgroundColor: 'rgba(100, 116, 139, 0.2)',
+                    borderColor: '#64748b',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#64748b'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0,0,0,0.05)' },
+                        grid: { color: 'rgba(0,0,0,0.05)' },
+                        pointLabels: { font: { size: 10, weight: 'bold' } },
+                        ticks: { display: false }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom', labels: { padding: 20, font: { size: 12 } } }
+                }
+            }
+        });
+
+        // Load initial state
+        updateDiagnostic('erratic');
+    </script>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body>
+</html>
